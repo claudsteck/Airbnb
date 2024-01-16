@@ -1,4 +1,8 @@
 -- What is the number of reviews and date of the latest review, by property type?
+SELECT listings.property_type , COUNT(*), MAX(reviews.date_reviewed)
+FROM listings
+INNER JOIN reviews  ON reviews.listing_id = listings.id
+GROUP by listings.property_type;
 
 -- +-------------------------------------+----------+----------------------------+
 -- | Boat                                | 2        | 2021-06-19                 |
